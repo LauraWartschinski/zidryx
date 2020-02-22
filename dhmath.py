@@ -62,7 +62,7 @@ def checkmodulus(n):
   if not isSafePrime(n):
     print(str(n) + " is not a safe prime number.")
     return False
-  if bitlength < 180:
-    print("Warning. This number has " + str(bitlength) + " bit. It is recommended to use at least 180 bit or more.")
+  if bitlength < 256:
+    print("Warning. This number has " + str(bitlength) + " bit. It is recommended to use at least 256 bit or more.")
   return True
   

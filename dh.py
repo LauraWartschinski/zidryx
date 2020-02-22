@@ -26,7 +26,7 @@ def get_alice():
 #Let the user pick the size of the original secret key in bit
 def get_key_size():
   while True:
-    inp = input("Pick key size in bits (160 bit recommended): ")
+    inp = input("Pick key size in bits (256 bit or more recommended): ")
     try:
       n = int(inp)
       if dhmath.checkkeysize(n):
