@@ -1,6 +1,21 @@
 # zidryx
 cryptography examples with python
 
+## "Korrekt Pferd Batterie Heftklammer" or: German Passphrase Creator
+
+The little python tool `german_passphrase.py` creates a passphrase, made up of German words, analogous to the very popular and well known <a href="https://xkcd.com/936/">xkcd 936</a>.
+
+Usage: The tool takes up to three parameters: the first specifies the number of words to combine in the phrase, the second the minimum length for each word, and the third the maximum length for each word.
+
+The database of words is taken from <a href="https://www1.ids-mannheim.de/kl/projekte/methoden/derewo.html">Leibnitzt-Institut für Deutsche Sprache</a> and contains a little more than 25000 German words in their basic form, such as 'Telekommunikationszentrum', 'versnobt' und 'umhin', many of them composite nouns. 
+
+The default values are 4 words with a minimum length of 5 and a maximum length of 12 characters. A little over 13000 words in the database fit those characteristics, making for 13000^4 = 28 561 000 000 000 000 possible combinations. 
+
+```
+$ python3 german_passphrase.py 4 3 8
+Anzünder Freundin Uniradio seelisch
+````
+
 ## Diffie Hellman Key Exchange
 
 This is a python implementation of a Diffie Hellman Key Exchange with simple sockets. Start two instances of the program which can reach each other over a network (or run them both locally) and use them to establish a shared symmetric key.
