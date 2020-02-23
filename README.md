@@ -1,5 +1,9 @@
-# zidryx
-cryptography examples with python
+# Zidryx
+
+Some small programs in python that are related to security.
+
+Why the name? Try ROT-16 on it to be slightly underwhelmed. ;)
+
 
 ## "Korrekt Pferd Batterie Heftklammer" or: German Passphrase Creator
 
