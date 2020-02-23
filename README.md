@@ -7,14 +7,21 @@ The little python tool `german_passphrase.py` creates a passphrase, made up of G
 
 Usage: The tool takes up to three parameters: the first specifies the number of words to combine in the phrase, the second the minimum length for each word, and the third the maximum length for each word.
 
-The database of words is taken from <a href="https://www1.ids-mannheim.de/kl/projekte/methoden/derewo.html">Leibnitzt-Institut für Deutsche Sprache</a> and contains a little more than 25000 German words in their basic form, such as 'Telekommunikationszentrum', 'versnobt' und 'umhin', many of them composite nouns. 
+The database of words is taken from <a href="https://www1.ids-mannheim.de/kl/projekte/methoden/derewo.html">Leibnitzt-Institut für Deutsche Sprache</a> and contains a little more than 25000 German words in their basic form, such as 'Telekommunikationszentrum', 'versnobt' und 'umhin', many of them composite nouns. The random function used in this tool is `os.urandom`, which is safe for cryptographic applications.
 
-The default values are 4 words with a minimum length of 5 and a maximum length of 12 characters. A little over 13000 words in the database fit those characteristics, making for 13000^4 = 28 561 000 000 000 000 possible combinations. 
+The default values are 4 words with a minimum length of 5 and a maximum length of 12 characters. A little over 13000 words in the database fit those characteristics, making for 13000^4 = 28 561 000 000 000 000 possible combinations. Even if the attacker knows the scheme for password creating, which is what is assumed here, there are 28 million billion possible passwords. This of course only holds true if the words are actually chosen at random. If the user picks words like their favorite hobby, hometown or cat's name, the entropy is much lower. But for exactly this purpose, this tool was created. 
 
 ```
-$ python3 german_passphrase.py 4 3 8
 Anzünder Freundin Uniradio seelisch
+$ python3 german_passphrase.py 4 3 8
 ````
+
+The example given above contains 33 characters. If a password was instead made up of completely randomly chosen characters, e.g. from the 95 characters in the Basic Latin Unicode block, it would take only 9 characters to have more possible combinations. However, such a password, like e.G. ``uJ:RekwC%``, is in many cases much harder for a human to remember. And for passwords that need to be stored in a human brain, a password that is easy to guess or bruteforce by an attacker is bad, but a password that is easy to forget is *also bad*. Using the method of picking a phrase of a few random mwords is a method that allows human to remember much stronger passwords than picking a few random characters.
+
+
+
+
+
 
 ## Diffie Hellman Key Exchange
 
