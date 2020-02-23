@@ -49,7 +49,10 @@ One more remark: The Diffie Hellman Key Exchange does not authenticate users. A 
 
 ### The implementation
 
-This implementation lets the user pick either the role of Alice or Bob. The protocol itself is basically symmetric, but for simplicity's sake, only one side gets to propose the parameters for the algorithm, and this is Alice. Bob receives the parameters, performs some sanity checks, and if the parameters are okay, 
+This implementation lets the user pick either the role of Alice or Bob. The users need a working network connection between them. The protocol itself is basically symmetric, but for simplicity's sake, only one side gets to propose the parameters for the algorithm. Both users start the program and pick different roles. Alice is then asked to enter the partner's IP address, and the exchange between the two partners is initiated after Alice sends "DH" to Bob and he replies with the same.
+ 
+Alices has to specify the length of the private keys as well as the values for the modulus p and the generator g, while it is suggested to her to use the default value. Some checks are performed on the parameters, before they are sent to Bob, who will also perform some checks and reject the whole exchange if the parameters are not chosen well. Next, for both partners, a random private key of the desired length in bits is created and taken as exponent to calculate the shared secret g^a mod p.
 
+Alice sends her shared secret to Bob, who receives it and replies with his shared secret. Now, both sides can compute the final common secret and display it to the user. 
 
 ![screenshot](https://github.com/LauraWartschinski/zidryx/blob/master/img/dh.png)
